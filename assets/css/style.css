@@ -6,6 +6,7 @@
 
 header {
     position: fixed;
+    top: 0;
     width: 100%;
     display: flex;
     align-items: center;
@@ -47,9 +48,6 @@ label {
         color: white;
     }
     nav ul {
-        display: none;
-    }
-    .navtoggle:checked~nav ul {
         position: absolute;
         top: 58px;
         left: 0;
@@ -57,5 +55,13 @@ label {
         display: flex;
         flex-direction: column;
         background-color: violet;
+        transform: scale(1, 0);
+        transform-origin: top;
+        opacity: 0;
+        transition: transform 200ms ease-in;
+    }
+    .navtoggle:checked~nav ul {
+        transform: scale(1, 1);
+        opacity: 1;
     }
 }
